@@ -1,0 +1,190 @@
+<div style="background: #e8e8e8; padding: 16px 30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="24">
+      <nz-page-header>
+        <nz-breadcrumb nz-page-header-breadcrumb>
+          <nz-breadcrumb-item>Property</nz-breadcrumb-item>
+          <nz-breadcrumb-item>Site Description</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <nz-page-header-title>Site Description</nz-page-header-title>
+        <nz-page-header-tags>
+          <nz-tag [nzColor]="'green'">Draft</nz-tag>
+        </nz-page-header-tags>
+      </nz-page-header>
+    </div>
+  </div>
+</div>
+<div style="background: #e8e8e8; padding: 16px 30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="24">
+      <nz-card>
+        <p style="font-weight: 600; font-size: 14px; color: #595959;">
+          Transportation
+        </p>
+        <i nz-icon [type]="'file-search'"></i
+        ><span>Transportation Discussion</span>
+        <div froalaEditor [froalaEditor]="editorOptions">
+          The 9th Avenue subway stations is an 8 minute walk away.
+        </div>
+      </nz-card>
+    </div>
+  </div>
+</div>
+
+<div style="background: #e8e8e8; padding: 16px 30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="24">
+      <nz-card>
+        <p style="font-weight: 600; font-size: 14px; color: #595959;">
+          Surrounding Uses
+        </p>
+        <nz-checkbox-group
+          style="padding-bottom: 8px;"
+          [(ngModel)]="surroundingUses"
+          (ngModelChange)="log(surroundingUses)"
+        ></nz-checkbox-group>
+        <div>
+          <i nz-icon [type]="'file-search'"></i
+          ><span>Surrounding Uses Discussion</span>
+          <div froalaEditor [froalaEditor]>
+            It is located on a primarily residential block.
+          </div>
+        </div>
+      </nz-card>
+    </div>
+  </div>
+</div>
+
+<div style="background: #e8e8e8; padding: 16px 30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="24">
+      <nz-card>
+        <p style="font-weight: 600; font-size: 14px; color: #595959;">
+          Sited Descriptors
+        </p>
+        <span stlye="font-size:14px">Site Area:</span
+        ><span style="font-size: 12px;"> 5,009 sq ft.</span><br />
+        <span stlye="font-size:14px">Shape:</span
+        ><span style="font-size: 12px;"> Rectangular</span><br />
+        <span stlye="font-size:14px">Frontage:</span
+        ><span style="font-size: 12px;"> 41st Street: 25ft</span><br />
+        <div style="padding-top: 8px;" nz-row [nzJustify]="'space-between'">
+          <div nz-col [nzSpan]="1">
+            <button nz-button nzType="primary">Add</button>
+          </div>
+          <div nz-col [nzOffset]="22" [nzSpan]="1">
+            <button nz-button nzShape="circle" nzType="primary" nzGhost>
+              <i nz-icon [type]="'undo'"></i>
+            </button>
+          </div>
+          <div style="padding-top: 8px;" nz-col [nzSpan]="24">
+            <nz-table
+              #sitedDescriptorsTable
+              [nzShowPagination]="false"
+              [nzData]="sitedDescriptorsData"
+              nzBordered
+              nzSimple="true"
+            >
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of sitedDescriptorsTable.data">
+                  <td>
+                    {{ data.item }}
+                  </td>
+                  <td>
+                    {{ data.description }}
+                  </td>
+                </tr>
+              </tbody>
+            </nz-table>
+          </div>
+        </div>
+      </nz-card>
+    </div>
+  </div>
+</div>
+
+<div style="background: #e8e8e8; padding: 16px 30px;">
+  <div nz-row>
+    <div nz-col [nzSpan]="24">
+      <nz-card>
+        <p style="font-weight: 600; font-size: 14px; color: #595959;">
+          Flood Hazard Status
+        </p>
+        <i nz-icon [type]="'file-search'"></i
+        ><span>Flood Hazard Status Discussion</span>
+        <div froalaEditor [froalaEditor]>
+          According to National Flood Insurance Program Rate Map dated September
+          5, 2007 Community Panel #3604970213F the subject is located within a
+          Zone X flood zone. Zone X is an area of minimal flooding. These areas
+          are determined to be outside the 500-year floodplain and are
+          determined to be outside the 1% and 0.2% annual chance floodplains.
+        </div>
+      </nz-card>
+    </div>
+  </div>
+</div>
+
+<div style="background: #e8e8e8; padding: 16px 30px;">
+  <div nz-row >
+    <div nz-col [nzSpan]="24">
+      <nz-card>
+        <p style="font-weight: 600; font-size: 14px; color: #595959;">
+          Utilities
+        </p>
+        <div style="padding: 8px 0px;">
+          <button nz-button nzType="primary">Add</button>
+        </div>
+        <nz-table
+          nzBordered
+          #utilitiesTable
+          [nzShowPagination]="false"
+          [nzData]="utilitiesData"
+        >
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of utilitiesTable.data">
+              <td>
+                {{ data.item }}
+              </td>
+              <td>
+                {{ data.description }}
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </nz-card>
+    </div>
+  </div>
+</div>
+
+<div style="background: #e8e8e8; padding: 16px 30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="24">
+      <nz-card>
+        <p style="font-weight: 600; font-size: 14px; color: #595959;">
+          Conclusion
+        </p>
+        <i nz-icon [type]="'file-search'"></i
+        ><span>Site Description Conclusion</span>
+        <div froalaEditor [froalaEditor]>
+          According to National Flood Insurance Program Rate Map dated September
+          5, 2007 Community Panel #3604970213F the subject is located within a
+          Zone X flood zone. Zone X is an area of minimal flooding. These areas
+          are determined to be outside the 500-year floodplain and are
+          determined to be outside the 1% and 0.2% annual chance floodplains.
+        </div>
+      </nz-card>
+    </div>
+  </div>
+</div>

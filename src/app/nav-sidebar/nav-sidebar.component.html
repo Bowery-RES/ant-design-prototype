@@ -1,0 +1,42 @@
+<img
+  src="assets/images/logo_primary_blue.png"
+  style="width: 200px; height: 64px; padding: 20px 54px;background: white;"
+/>
+<ul nz-menu [nzMode]="'inline'">
+  <li nz-submenu>
+    <span title><i nz-icon [type]="'file-text'"></i>Report</span>
+  </li>
+  <li nz-submenu nzOpen>
+    <span title><i nz-icon type="mail"></i>Property</span>
+    <ul>
+      <li nz-menu-item><a routerLink="/summary" routerLinkActive="active">Summary</a></li>
+      <li nz-menu-item>Market</li>
+      <li nz-menu-item>Property History</li>
+      <li nz-menu-item>Property Description</li>
+      <li nz-menu-item ><a routerLink="/site-description" routerLinkActive="active">Site Description</a></li>
+      <li nz-menu-item>Commercial Units</li>
+      <li nz-menu-item>Utilities</li>
+      <li nz-menu-item>Amenities</li>
+      <li nz-menu-item>Maps</li>
+      <li nz-menu-item>Photos</li>
+      <li nz-menu-item>Zoning</li>
+      <li nz-menu-item>Renovations</li>
+      <li nz-menu-item>Residential Units</li>
+    </ul>
+  </li>
+  <li nz-submenu>
+    <span title><i nz-icon type="dollar"></i>Income</span>
+  </li>
+  <li nz-submenu>
+    <span title><i nz-icon type="tags"></i>Sales</span>
+  </li>
+  <li nz-menu-item>
+    <span title><i nz-icon type="trophy"></i>Final</span>
+  </li>
+  <li nz-submenu>
+    <span title><i nz-icon type="file-search"></i>Preview & Edit</span>
+  </li>
+  <li nz-submenu>
+    <span title><i nz-icon type="export"></i>Export</span>
+  </li>
+</ul>

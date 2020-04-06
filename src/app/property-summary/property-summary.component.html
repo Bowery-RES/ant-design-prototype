@@ -1,0 +1,172 @@
+<div style="background: #e8e8e8; padding: 16px 30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="24">
+      <nz-page-header>
+        <nz-breadcrumb nz-page-header-breadcrumb>
+          <nz-breadcrumb-item>Property</nz-breadcrumb-item>
+          <nz-breadcrumb-item>Summary</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <nz-page-header-title>Summary</nz-page-header-title>
+        <nz-page-header-tags>
+          <nz-tag [nzColor]="'green'">Draft</nz-tag>
+        </nz-page-header-tags>
+      </nz-page-header>
+    </div>
+  </div>
+</div>
+
+<div style="background: #e8e8e8; padding: 16px 30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="24">
+      <nz-card>
+        <p style="font-weight: 600; font-size: 14px; color: #595959;">
+          Site Details
+        </p>
+        <div nz-row>
+          <div nz-col [nzSpan]="10">
+            <span>Building Name</span><br />
+            <input
+              type="text"
+              nz-input
+              [(ngModel)]="propertyData.buildingName"
+            />
+          </div>
+          <div nz-col [nzSpan]="10" [nzOffset]="2">
+            <span>Building Class</span><br />
+            <input
+              type="text"
+              nz-input
+              [(ngModel)]="propertyData.buildingClass"
+            />
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col [nzSpan]="10">
+            <span>Street Address</span><br />
+            <input
+              type="text"
+              nz-input
+              [(ngModel)]="propertyData.streetAddress"
+            />
+          </div>
+          <div nz-col [nzSpan]="10" [nzOffset]="2">
+            <span>Census Tract</span><br />
+            <input
+              type="text"
+              nz-input
+              [(ngModel)]="propertyData.censusTract"
+            />
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col [nzSpan]="10">
+            <span>Street Name</span><br />
+            <input type="text" nz-input [(ngModel)]="propertyData.streetName" />
+          </div>
+          <div nz-col [nzSpan]="10" [nzOffset]="2">
+            <span>Building Descriptor</span><br />
+            <input
+              type="text"
+              nz-input
+              [(ngModel)]="propertyData.buildingDescriptor"
+            />
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col [nzSpan]="10">
+            <span>Year Built</span><br />
+            <input type="text" nz-input [(ngModel)]="propertyData.yearBuilt" />
+          </div>
+          <div nz-col [nzSpan]="10" [nzOffset]="2">
+            <span>Site Area</span><br />
+
+            <nz-input-group [nzAddOnAfter]="addOnAfterTemplate">
+              <input type="text" nz-input [(ngModel)]="propertyData.siteArea" />
+            </nz-input-group>
+            <ng-template #addOnAfterTemplate>
+              <nz-select [(ngModel)]="propertyData.siteAreaBasis">
+                <nz-option [nzLabel]="'SF'" [nzValue]="'sf'"></nz-option>
+                <nz-option [nzLabel]="'Acres'" [nzValue]="'acres'"></nz-option>
+              </nz-select>
+            </ng-template>
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col [nzSpan]="10">
+            <label nz-checkbox [(ngModel)]="propertyData.yearBuiltEstimate"
+              >This is an estimate</label
+            >
+          </div>
+          <div nz-col [nzSpan]="10" [nzOffset]="2">
+            <label nz-checkbox [(ngModel)]="propertyData.displayBoth"
+              >Display Site Area in SF and Acres</label
+            >
+          </div>
+        </div>
+      </nz-card>
+    </div>
+  </div>
+</div>
+<div style="background: #e8e8e8; padding: 16px 30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="24">
+      <nz-card>
+        <p style="font-weight: 600; font-size: 14px; color: #595959;">
+          As Is Building Description
+        </p>
+        <div nz-row>
+          <div nz-col [nzSpan]="10">
+            <span>Gross Building Area</span><br />
+            <nz-input-number
+              nz-number
+              [(ngModel)]="buildingDescription.grossBuildingArea"
+            ></nz-input-number>
+          </div>
+          <div nz-col [nzSpan]="10" [nzOffset]="2">
+            <span>Residential Units</span><br />
+            <nz-input-number
+              nz-number
+              [(ngModel)]="buildingDescription.residentialUnitCount"
+            ></nz-input-number>
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col [nzSpan]="10">
+            <span>Floors</span><br />
+            <nz-input-number
+              nz-number
+              [(ngModel)]="buildingDescription.floors"
+            ></nz-input-number>
+          </div>
+          <div nz-col [nzSpan]="10" [nzOffset]="2">
+            <span>Commercial Units</span><br />
+            <nz-input-number
+              nz-number
+              [(ngModel)]="buildingDescription.commercialUnitCount"
+            ></nz-input-number>
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col [nzSpan]="10">
+            <span>Use</span><br />
+            <nz-radio-group [(ngModel)]="buildingDescription.use">
+              <label nz-radio nzValue="multifamily">Multifamily</label>
+              <label nz-radio nzValue="mixed-use">Mixed-Use</label>
+            </nz-radio-group>
+          </div>
+          <div nz-col [nzSpan]="10" [nzOffset]="2">
+            <span>Type</span><br />
+            <nz-radio-group [(ngModel)]="buildingDescription.buildingType">
+              <label nz-radio nzValue="elevator">Elevator</label>
+              <label nz-radio nzValue="walk-up">Walk-up</label>
+            </nz-radio-group>
+          </div>
+        </div>
+        <div style="padding-top: 16px;">
+          <span>As Is Building Description Export</span>
+          <div [froalaEditor]></div>
+        </div>
+      </nz-card>
+    </div>
+  </div>
+</div>
