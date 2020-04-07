@@ -145,5 +145,8 @@
       }
     }
   },
-  "defaultProject": "ant-design"
+  "defaultProject": "ant-design",
+  "cli": {
+    "analytics": false
+  }
 }
