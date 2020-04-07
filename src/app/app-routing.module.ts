@@ -5,7 +5,7 @@ import {PropertySummaryComponent} from './property-summary/property-summary.comp
 const routes: Routes = [
   {path: 'site-description', component: SiteDescriptionComponent},
   {path: 'summary', component: PropertySummaryComponent},
-  {path: '', redirectTo: '/site-description'}
+  {path: '', redirectTo: '/site-description', pathMatch: 'full'}
 ];
 
 @NgModule({
